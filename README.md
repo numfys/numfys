@@ -8,6 +8,7 @@ A resource for use of numerical physics with <code>Python</code>, covering many 
     ```
     pip install -r requirements.txt
     ```
+NB! There might be a problem with the packages `libmysqlclient-dev` and `libjpeg8-dev` not being installed (problem detected on Ubuntu 16.04).
 3. We recommend you use your own Django settings file, e.g. `devel.py`, when running the development server locally. This file will import `base.py`, overwrite certain variables in it and add some. It might look like this:
     ```python
     from .base import *
@@ -59,7 +60,7 @@ where the difference is in `+ static(settings.MEDIA_URL, document_root=settings.
 5. Set up the `SQLite` database by running the commands:
 
     ```
-    ./manage.py makemigrations module
+    ./manage.py makemigrations notebook
     ./manage.py migrate
     ```
 6. We use `Bower` to manage front end packages like `Bootstrap` and `Font Awesome`. Install it, through their web site [bower.io](http://bower.io/), and `django-bower` with `pip install django-bower` (or `conda install django-bower`), as explained through their [GitHub page](https://github.com/nvbn/django-bower).

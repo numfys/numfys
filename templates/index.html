@@ -30,9 +30,9 @@
         {% for object in recent_list %}
           <p>
           {% if object|get_nbtype == 'E' %}
-          <p><a href="https://nbviewer.jupyter.org/urls/{{ DOMAIN_NAME }}{{ object.file_ipynb.url }}"><i class="fa fa-book">
+          <p><a href="https://nbviewer.jupyter.org/url/{{ DOMAIN_NAME }}{{ object.file_ipynb.url }}"><i class="fa fa-book">
           {% else %}
-            <p><a href="https://nbviewer.jupyter.org/urls/{{ DOMAIN_NAME }}{{ object.file_ipynb.url }}"><i class="fa fa-cubes">
+            <p><a href="https://nbviewer.jupyter.org/url/{{ DOMAIN_NAME }}{{ object.file_ipynb.url }}"><i class="fa fa-cubes">
           {% endif %}
           &nbsp;</i>{{ object.name }}</a>&nbsp;{{ object.pub_date|date:"M j, Y" }}</p>
         {% endfor %}

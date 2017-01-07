@@ -58,7 +58,7 @@
         <div class="panel-body">
           {% for notebook in topic.list %}
             <h4 id="same-line">
-              <a href="https://nbviewer.jupyter.org/urls/{{ DOMAIN_NAME }}{{ notebook.file_ipynb.url }}">
+              <a href="https://nbviewer.jupyter.org/url/{{ DOMAIN_NAME }}{{ notebook.file_ipynb.url }}">
                 <i class="fa fa-file-code-o">&nbsp;</i>
                 {{ notebook.name }}
               </a>
