@@ -41,7 +41,7 @@ modification follow.
   0. Definitions
 
   "Program" means a copy of NumFys which is said to be distributed under
-this Academic Public License.
+this Modified License.
 
   "Work based on the Program" means either the Program or any derivative work
 under copyright law: that is to say, a work containing the Program or a
