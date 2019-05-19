@@ -34,7 +34,7 @@ to create further releases under this license.
 modification follow.
 
 
-                         ACADEMIC PUBLIC LICENSE
+                            MODIFIED LICENSE 
 
     TERMS AND CONDITIONS FOR USE, COPYING, DISTRIBUTION AND MODIFICATION
 
