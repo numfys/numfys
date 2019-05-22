@@ -76,8 +76,10 @@ along with the Program.
 of it, thus forming a work based on the Program, and copy and
 distribute such modifications or work under the terms of Section 2
 above, provided that you also meet all of these conditions:
+
 a) You must cause the modified files to carry prominent notices
     stating that you changed the files and the date of any change.
+
 b) You must cause any work that you distribute or publish, that in
    whole or in part contains or is derived from the Program or any
    part thereof, to be licensed as a whole at no charge to all third
@@ -111,6 +113,7 @@ the scope of this License.
   4. You may copy and distribute the Program (or a work based on it,
 under Section 3) in object code or executable form under the terms of
 Sections 2 and 3 above provided that you also do one of the following:
+
 a) Accompany it with the complete corresponding machine-readable
    source code, which must be distributed under the terms of Sections
    2 and 3 above on a medium customarily used for software interchange; or,
@@ -217,4 +220,4 @@ YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
 PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGES.
 
-                     END OF TERMS AND CONDITIONS
+# END OF TERMS AND CONDITIONS
