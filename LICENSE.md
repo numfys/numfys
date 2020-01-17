@@ -3,7 +3,7 @@ Modified License
 Copyright (C) 2019 NumFys
 
 
-                                Preamble
+## Preamble
 
   This license contains the terms and conditions of using NumFys in
 noncommercial settings: at academic institutions for teaching and research
@@ -34,9 +34,9 @@ to create further releases under this license.
 modification follow.
 
 
-                            MODIFIED LICENSE 
+## MODIFIED LICENSE 
 
-    TERMS AND CONDITIONS FOR USE, COPYING, DISTRIBUTION AND MODIFICATION
+### TERMS AND CONDITIONS FOR USE, COPYING, DISTRIBUTION AND MODIFICATION
 
   0. Definitions
 
@@ -77,13 +77,13 @@ of it, thus forming a work based on the Program, and copy and
 distribute such modifications or work under the terms of Section 2
 above, provided that you also meet all of these conditions:
 
-    a) You must cause the modified files to carry prominent notices
+a) You must cause the modified files to carry prominent notices
     stating that you changed the files and the date of any change.
 
-    b) You must cause any work that you distribute or publish, that in
-    whole or in part contains or is derived from the Program or any
-    part thereof, to be licensed as a whole at no charge to all third
-    parties under the terms of this License.
+b) You must cause any work that you distribute or publish, that in
+   whole or in part contains or is derived from the Program or any
+   part thereof, to be licensed as a whole at no charge to all third
+   parties under the terms of this License.
 
 These requirements apply to the modified work as a whole.  If
 identifiable sections of that work are not derived from the Program,
@@ -114,22 +114,22 @@ the scope of this License.
 under Section 3) in object code or executable form under the terms of
 Sections 2 and 3 above provided that you also do one of the following:
 
-    a) Accompany it with the complete corresponding machine-readable
-    source code, which must be distributed under the terms of Sections
-    2 and 3 above on a medium customarily used for software interchange; or,
+a) Accompany it with the complete corresponding machine-readable
+   source code, which must be distributed under the terms of Sections
+   2 and 3 above on a medium customarily used for software interchange; or,
 
-    b) Accompany it with a written offer, valid for at least three
-    years, to give any third party, for a charge no more than your
-    cost of physically performing source distribution, a complete
-    machine-readable copy of the corresponding source code, to be
-    distributed under the terms of Sections 2 and 3 above on a medium
-    customarily used for software interchange; or,
+b) Accompany it with a written offer, valid for at least three
+   years, to give any third party, for a charge no more than your
+   cost of physically performing source distribution, a complete
+   machine-readable copy of the corresponding source code, to be
+   distributed under the terms of Sections 2 and 3 above on a medium
+   customarily used for software interchange; or,
 
-    c) Accompany it with the information you received as to the offer
-    to distribute corresponding source code.  (This alternative is
-    allowed only for noncommercial distribution and only if you received
-    the program in object code or executable form with such an offer,
-    in accord with Subsection b) above.)
+c) Accompany it with the information you received as to the offer
+   to distribute corresponding source code.  (This alternative is
+   allowed only for noncommercial distribution and only if you received
+   the program in object code or executable form with such an offer,
+   in accord with Subsection b) above.)
 
 The source code for a work means the preferred form of the work for
 making modifications to it.  For an executable work, complete source
@@ -198,7 +198,7 @@ those countries, so that distribution is permitted only in or among
 countries not thus excluded.  In such case, this License incorporates
 the limitation as if written in the body of this License.
 
-                            NO WARRANTY
+## NO WARRANTY
 
   10. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
 FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN
@@ -220,4 +220,4 @@ YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
 PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGES.
 
-                     END OF TERMS AND CONDITIONS
+# END OF TERMS AND CONDITIONS
