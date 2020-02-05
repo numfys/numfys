@@ -7,31 +7,58 @@ A resource for solving problems in computational physics using <code>Python</cod
     ```
     git clone https://github.com/numfys/numfys.git
     ```
-2. Create and activate a new virtual environment:
+2. Change from production to development settings:
+    This step will be removed in the future, by using environment variables.
+
+    ```
+    # manage.py
+    Change
+    -    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "numfys.devel")
+    to
+    +    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "numfys.production")
+    ```
+
+    ```
+    # numfys/wsgi.py
+    Change
+    -os.environ.setdefault("DJANGO_SETTINGS_MODULE", "numfys.devel")
+    to
+    +os.environ.setdefault("DJANGO_SETTINGS_MODULE", "numfys.production")
+    ```
+
+    ```
+    # static/css/nbstyle.css
+    Change
+    -<link rel="stylesheet" type="text/css" href="/static/css/code_style.css" />
+    to
+    +<link rel="stylesheet" type="text/css" href="https://www.numfys.net/static/css/code_style.css" />
+    ```
+
+3. Create and activate a new virtual environment:
 
     ```
     virtualenv -p /usr/bin/python3 venv
     source venv/bin/activate
     ```
-3. Use pip to install the necessary packages and dependencies from `requirements.txt`, by running:
+4. Use pip to install the necessary packages and dependencies from `requirements.txt`, by running:
 
     ```
     pip3 install -r requirements.txt
     ```
     NB! The installation depends on the libraries `libmysqlclient` and `libjpeg`.
     These are found in the following apt packages: `libmysqlclient-dev` and `libjpeg8-dev`.
-4. Set up the `SQLite` database by running the commands:
+5. Set up the `SQLite` database by running the commands:
 
     ```
     ./manage.py makemigrations notebook
     ./manage.py migrate
     ```
-5. Now it's time to run the Django development server. In the directory containing `manage.py`, run:
+6. Now it's time to run the Django development server. In the directory containing `manage.py`, run:
 
     ```
     ./manage.py runserver
     ```
-6. To manage the website content, create a superuser and log in at 127.0.0.1:8000/admin:
+7. To manage the website content, create a superuser and log in at 127.0.0.1:8000/admin:
 
     ```
     ./manage.py createsuperuser
