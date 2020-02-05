@@ -10,7 +10,7 @@
 {% block content %}
     <div class="container">
 		<h1> {{ flatpage.title }} </h1>
-		<link rel="stylesheet" type="text/css" href="/static/css/code_style.css" />
+		<link rel="stylesheet" type="text/css" href="https://www.numfys.net/static/css/code_style.css" />
         {{ flatpage.content|markdown:"codehilite,extra,toc"|safe }}
     </div>
 {% endblock content %}
