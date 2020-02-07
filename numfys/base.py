@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'djangobower',
     'django_cleanup',
     'taggit',  # django-taggit
+    'taggit_labels',
 	'django_markup', # markdown
 ]
 

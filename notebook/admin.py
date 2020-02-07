@@ -1,8 +1,11 @@
 from django.contrib import admin
+from django.forms import ModelForm
 from django.forms.widgets import FileInput
 from django.db import models
 from django.utils.html import format_html
 from notebook.models import Notebook, NotebookImage, NotebookFile, Topic
+from taggit.forms import TagField
+from taggit_labels.widgets import LabelWidget as TaggitLabelWidget
 
 
 class TopicAdmin(admin.ModelAdmin):
@@ -33,8 +36,14 @@ class NotebookImageInline(admin.TabularInline):
     formfield_overrides = {models.ImageField: {'widget': FileInput}, }
 
 
+class NotebookForm(ModelForm):
+    """Custom model form with improved widget for TagField"""
+    tags = TagField(widget=TaggitLabelWidget)
+
 class NotebookAdmin(admin.ModelAdmin):
     """Information on what to display and how in notebook admin page."""
+
+    form = NotebookForm
 
     # Attributes to list notebooks after. First attribute (title) becomes
     # the link to the specific notebook change page
