@@ -4,6 +4,7 @@ db.sqlite3
 numfys/production.py
 media/*
 */migrations
+venv/
 
 
 # Python.gitignore:
