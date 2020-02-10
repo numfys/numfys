@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # NumFys apps
     'notebook',
+    'course',
     'search',
     'misc',
 

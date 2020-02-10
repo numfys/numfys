@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <span><a href="{% url 'course_list' %}">Back to course list</a></span>
+    <h1>{{ course.name }}</h1>
+    <span>{{ course.date }}</span>
+    <hr />
+    <p>
+    {% if course.promo_image %}<img width="250px" src="{{ course.promo_image.url }}">{% endif %}
+    {{ course.description }}
+    </p>
+
+    <ul>
+        {% for file in course.file.all %}
+        <li><a href="{{ file.file.url }}">{{ file.basename }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
