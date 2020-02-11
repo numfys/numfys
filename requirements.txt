@@ -1,4 +1,4 @@
-Django==1.9.12
+Django==1.11.28
 django-bower==5.1.0
 django-cleanup==0.4.2
 django-markup==1.1
