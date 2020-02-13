@@ -35,10 +35,17 @@ class NotebookImageInline(admin.TabularInline):
     # Remove 'Clear' checkbox in ordinary ImageField widget
     formfield_overrides = {models.ImageField: {'widget': FileInput}, }
 
+class MyTaggitLabelWidget(TaggitLabelWidget):
+     def tag_list(self, tags):
+        # Order alphabetically
+        return [
+            (tag.name, "selected taggit-tag" if tag.name in tags else "taggit-tag")
+            for tag in self.model.objects.order_by('name')
+            ]
 
 class NotebookForm(ModelForm):
     """Custom model form with improved widget for TagField"""
-    tags = TagField(widget=TaggitLabelWidget)
+    tags = TagField(widget=MyTaggitLabelWidget)
 
 class NotebookAdmin(admin.ModelAdmin):
     """Information on what to display and how in notebook admin page."""
