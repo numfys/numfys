@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.db import models
+from nbconvert import HTMLExporter
 
 from taggit.managers import TaggableManager
 import os
@@ -52,7 +53,7 @@ class Topic(models.Model):
 
 class Notebook(models.Model):
     """Notebook database table attribute defitions."""
-    topic = models.ForeignKey(Topic)
+    topic = models.ForeignKey(Topic, on_delete=models.PROTECT)
     index = models.IntegerField(
         help_text='Index of notebook in topic.',
         default=1,
@@ -94,6 +95,7 @@ class Notebook(models.Model):
         null=True,
         help_text='Rendered using Jupyter\'s nbviewer.',
     )
+
     # From third party app 'django-taggit'
     # Docs: https://django-taggit.readthedocs.org/en/latest/index.html
     tags = TaggableManager(blank=True, )
@@ -114,12 +116,17 @@ class Notebook(models.Model):
     class Meta:
         ordering = ['topic__nb_type', 'topic__index', 'index']
 
+    def to_html(self):
+        exporter = HTMLExporter(template_name='classic')
+        body, resources = exporter.from_file(self.file_ipynb.path)
+        return body
 
 class NotebookImage(models.Model):
     """Store media files used in notebooks on server."""
     notebook = models.ForeignKey(
         Notebook,
         related_name='images',
+        on_delete=models.PROTECT
     )
     image = models.ImageField(
         blank=True,
@@ -137,6 +144,7 @@ class NotebookFile(models.Model):
     notebook = models.ForeignKey(
         Notebook,
         related_name='files',
+        on_delete=models.PROTECT
     )
     file = models.FileField(
         blank=True,

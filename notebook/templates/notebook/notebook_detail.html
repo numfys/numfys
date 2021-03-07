@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+<style>
+ #notebook{
+     overflow: hidden;
+     width: 80%;
+     border: 0px;
+     display: block;
+     margin: 0 auto;
+     box-shadow: 0 0 4px -3px black;
+ }
+</style>
+<script>
+    function resizeIFrameToFitContent( iFrame ) {
+
+    iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+    iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+    }
+</script>
+<iframe id="notebook" srcdoc="{{ notebook.to_html }}"  onload="resizeIFrameToFitContent(this)" scrolling="no">
+</iframe>
+{% endblock content %}
