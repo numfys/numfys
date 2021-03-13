@@ -14,7 +14,7 @@ class OverwriteStorage(FileSystemStorage):
     overwrite a new file's filename if it already exists.
     """
 
-    def get_available_name(self, filename):
+    def get_available_name(self, filename, max_length=None):
         if self.exists(filename):
             os.remove(os.path.join(settings.MEDIA_ROOT, filename))
         return filename
