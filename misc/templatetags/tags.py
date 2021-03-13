@@ -42,4 +42,4 @@ def markdown(value, arg=''):
             safe_mode = True
         else :
             safe_mode = False
-        return markdown.markdown(value, extensions, safe_mode=safe_mode)
+        return markdown.markdown(value, extensions=extensions, safe_mode=safe_mode)
