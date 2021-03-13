@@ -47,6 +47,7 @@ A resource for solving problems in computational physics using <code>Python</cod
     ```
     NB! The installation depends on the libraries `libmysqlclient` and `libjpeg`.
     These are found in the following apt packages: `libmysqlclient-dev` and `libjpeg8-dev`.
+    In some distributions, such as Arch, the SQL-libraries are found in `mariadb-libs` instead of `libmysqlclient-dev`.
 5. Set up the `SQLite` database by running the commands:
 
     ```

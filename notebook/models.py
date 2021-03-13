@@ -52,7 +52,7 @@ class Topic(models.Model):
 
 class Notebook(models.Model):
     """Notebook database table attribute defitions."""
-    topic = models.ForeignKey(Topic)
+    topic = models.ForeignKey(Topic, on_delete=models.PROTECT)
     index = models.IntegerField(
         help_text='Index of notebook in topic.',
         default=1,
@@ -120,6 +120,7 @@ class NotebookImage(models.Model):
     notebook = models.ForeignKey(
         Notebook,
         related_name='images',
+        on_delete=models.CASCADE,
     )
     image = models.ImageField(
         blank=True,
@@ -137,6 +138,7 @@ class NotebookFile(models.Model):
     notebook = models.ForeignKey(
         Notebook,
         related_name='files',
+        on_delete=models.CASCADE,
     )
     file = models.FileField(
         blank=True,

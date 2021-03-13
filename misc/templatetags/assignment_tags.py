@@ -4,7 +4,7 @@ from django import template
 register = template.Library()
 
 
-@register.assignment_tag
+@register.simple_tag
 def recent_uploads():
     """Return the last published notebooks as a list."""
 
