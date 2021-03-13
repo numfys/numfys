@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.db import models
+from nbconvert import HTMLExporter
 
 from taggit.managers import TaggableManager
 import os
@@ -94,6 +95,7 @@ class Notebook(models.Model):
         null=True,
         help_text='Rendered using Jupyter\'s nbviewer.',
     )
+
     # From third party app 'django-taggit'
     # Docs: https://django-taggit.readthedocs.org/en/latest/index.html
     tags = TaggableManager(blank=True, )
@@ -106,6 +108,12 @@ class Notebook(models.Model):
         if file_str[-5:] != 'ipynb':
             raise ValidationError(_('File error. You must upload the \
                 notebook in the IPython Notebook format .ipynb.'))
+
+    def to_html(self):
+        exporter = HTMLExporter(template_name='classic')
+        body, resources = exporter.from_file(self.file_ipynb.path)
+        return body
+
 
     def __str__(self):
         """Identify notebook by name."""
