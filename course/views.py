@@ -13,4 +13,8 @@ class CourseListView(ListView):
     model = Course
 
     def get_queryset(self):
-        return super().get_queryset().filter(published=True)
+        return (
+            super().get_queryset()
+            .filter(published=True)
+            .order_by("date")
+            )

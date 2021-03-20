@@ -3,9 +3,12 @@
 {% block content %}
 <div class="container">
     <h1>Courses</h1>
-    <ul>
+    <ul class="list-group">
     {% for course in object_list %}
-        <li><a href="{% url 'course' course.pk %}">{{ course.name }} {{ course.date }}</a></li>
+        <a  href="{% url 'course' course.pk %}" class="list-group-item">
+            <p class="text-primary">{{ course.name }} {{ course.date }}</p>
+            <p class="text-muted">{{ course.description|truncatewords:8 }}</p>
+        </a>
     {% endfor %}
     </ul>
 </div>
