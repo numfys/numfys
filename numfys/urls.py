@@ -1,4 +1,5 @@
 from django.conf.urls import url, include
+from django.urls import path
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
@@ -14,8 +15,8 @@ urlpatterns = [
     url(r'^search/', include('search.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^random/', random_notebook),
-    url(r'^courses/$', CourseListView.as_view(), name="course_list"),
-    url(r'^courses/(?P<pk>[\w-]+)/$', CourseView.as_view(), name="course")
+    path('courses/', CourseListView.as_view(), name="course_list"),
+    path('courses/<int:pk>/', CourseView.as_view(), name="course")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

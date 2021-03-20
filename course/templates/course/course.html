@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load filters %}
 
 {% block content %}
 <div class="container">
@@ -7,10 +8,14 @@
     <span>{{ course.date }}</span>
     <hr />
     <p>
-    {% if course.promo_image %}<img width="250px" src="{{ course.promo_image.url }}">{% endif %}
-    {{ course.description }}
+        {% if course.promo_image %}
+        <img width="250px" class="center-block" src="{{ course.promo_image.url }}" style="box-shadow: 0 0 6px -2px black;">
+        <p class="text-secondary text-center">Haley</p>
+        {% endif %}
+        {{ course.description|markdownify|safe }}
     </p>
 
+    <h2>Filer:</h2>
     <ul>
         {% for file in course.file.all %}
         <li><a href="{{ file.file.url }}">{{ file.basename }}</a></li>
