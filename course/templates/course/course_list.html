@@ -3,6 +3,7 @@
 {% block content %}
 <div class="container">
     <h1>Courses</h1>
+    <p class="text-muted">NB. Course files are in Norwegian</p>
     <ul class="list-group">
     {% for course in object_list %}
         <a  href="{% url 'course' course.pk %}" class="list-group-item">
