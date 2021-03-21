@@ -18,7 +18,7 @@
     <h2>Filer:</h2>
     <ul>
         {% for file in course.file.all %}
-        <li><a href="{{ file.file.url }}">{{ file.basename }}</a></li>
+        <li><a href="{{ file.file.url }}">{{ file.get_name }}</a></li>
         {% endfor %}
     </ul>
 </div>

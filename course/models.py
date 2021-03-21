@@ -15,6 +15,9 @@ class Course(models.Model):
         blank=True,
     )
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         ordering = ['-date']
 
@@ -30,6 +33,12 @@ class CourseFile(models.Model):
     # requires Course to handle change in pathname
     # if renaming Course.
     file = models.FileField(upload_to=course_directory_path)
+    name = models.CharField(
+        max_length=60,
+        blank=True,
+        verbose_name="Navn på fil",
+        help_text="Dersom det ikke er gitt et navn, brukes filnavnet.",
+    )
     course = models.ForeignKey("Course",
                                on_delete=models.CASCADE,
                                related_name="file")
@@ -37,3 +46,12 @@ class CourseFile(models.Model):
     @property
     def basename(self):
         return basename(self.file.name)
+
+
+    @property
+    def get_name(self):
+        return self.name if self.name else self.basename
+
+
+    def __str__(self):
+        return self.get_name
