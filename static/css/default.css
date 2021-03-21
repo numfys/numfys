@@ -179,6 +179,12 @@ pre {
   background-color: rgb(237,240,242);
 }
 
+.overflow-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .panel-body .hr-custom { margin: 0 -10px 0 -10px; }
 .panel-body p { margin-bottom: 3px; }
 

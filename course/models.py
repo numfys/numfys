@@ -15,6 +15,16 @@ class Course(models.Model):
         blank=True,
     )
 
+    @property
+    def short_description(self):
+        description = self.description
+        return (description
+                .replace(".", "\n")  # Split on dot.
+                .split("\n")[0]
+                .strip()
+                + "."
+                )
+
     def __str__(self):
         return self.name
 

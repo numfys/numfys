@@ -8,7 +8,7 @@
         <a  href="{% url 'course' course.pk %}" class="list-group-item">
             <p class="text-primary" style="display: inline-block;">{{ course.name }}</p>
             <p class="pull-right">{{ course.date }}</p>
-            <p class="text-muted">{{ course.description|truncatewords:8 }}</p>
+            <p class="text-muted overflow-ellipsis">{{ course.short_description }}</p>
         </a>
     {% endfor %}
     </ul>
