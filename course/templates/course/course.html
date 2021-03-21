@@ -10,7 +10,7 @@
     <p>
         {% if course.promo_image %}
         <img width="250px" class="center-block" src="{{ course.promo_image.url }}" style="box-shadow: 0 0 6px -2px black;">
-        <p class="text-muted text-center">Haley</p>
+        <p class="text-muted text-center">{{ course.promo_image_text }}</p>
         {% endif %}
         {{ course.description|markdownify|safe }}
     </p>

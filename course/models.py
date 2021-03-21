@@ -9,6 +9,11 @@ class Course(models.Model):
     promo_image = models.ImageField(upload_to='course_images',
                                     verbose_name='Promo-bilde som vises øverst',
                                     blank=True)
+    promo_image_text = models.CharField(
+        max_length=100,
+        verbose_name="Bildetekst, skriv f.eks. kildehenvisning til bildet.",
+        blank=True,
+    )
 
     class Meta:
         ordering = ['-date']
