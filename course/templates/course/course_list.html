@@ -6,7 +6,8 @@
     <ul class="list-group">
     {% for course in object_list %}
         <a  href="{% url 'course' course.pk %}" class="list-group-item">
-            <p class="text-primary">{{ course.name }} {{ course.date }}</p>
+            <p class="text-primary" style="display: inline-block;">{{ course.name }}</p>
+            <p class="pull-right">{{ course.date }}</p>
             <p class="text-muted">{{ course.description|truncatewords:8 }}</p>
         </a>
     {% endfor %}

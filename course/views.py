@@ -16,5 +16,4 @@ class CourseListView(ListView):
         return (
             super().get_queryset()
             .filter(published=True)
-            .order_by("date")
-            )
+        )
