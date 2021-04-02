@@ -75,9 +75,10 @@
                 {% endfor %}
               </p>
             {% endif %}
-            <p class="text-muted">
-              {{ notebook.body }}
-            </p>
+              <p class="text-muted">
+                  {{ notebook.body }}
+                  <a class="pull-right" title="Download notebook" href="{{ notebook.file_ipynb.url }}"><i class="fa fa-download"></i></a
+              </p>
             <!-- No border when last element -->
             {% if forloop.last %}
               {# empty #}
