@@ -99,12 +99,6 @@ class Notebook(models.Model):
     )
 
 
-    file_html = models.FileField(
-        verbose_name=".html file",
-        upload_to='notebooks',
-        storage=OverwriteStorage(),
-    )
-
     # From third party app 'django-taggit'
     # Docs: https://django-taggit.readthedocs.org/en/latest/index.html
     tags = TaggableManager(blank=True, )
@@ -121,27 +115,31 @@ class Notebook(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         self.generate_html_file()
-        super().save(*args, **kwargs)
 
 
-    def generate_html_file(self):
+    def get_or_create_html_file(self):
+        if not os.path.isfile(self.get_html_file_path()):
+            self.generate_html_file()
+        return self.get_html_file_path()
+
+
+    def get_html_file_path(self):
         filename = os.path.basename(self.file_ipynb.path)
         filename = os.path.splitext(filename)[0]  # Select name without extension
         filename += ".html"
-        self.file_html.save(
-            filename,
-            self.generate_html_file(),
-            save=False,
-        )
+        return os.path.join(settings.MEDIA_ROOT, filename)
+
+    def generate_html_file(self):
+        full_path = self.get_html_file_path()
+        with open(full_path, "w") as html_file:
+            html_file.write(self._to_html())
+        return full_path
+
 
     def _to_html(self):
         exporter = HTMLExporter(template_name='classic')
         body, resources = exporter.from_file(self.file_ipynb.path)
         return body
-
-
-    def generate_html_file(self):
-        return ContentFile(self._to_html())
 
 
     def __str__(self):
