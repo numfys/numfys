@@ -22,6 +22,8 @@
      iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
  }
 </script>
+<p class="text-primary">Beta: this is a new solution for displaying notebooks. You may see the old rendering solution here: <a href="https://nbviewer.jupyter.org/urls/{{ DOMAIN_NAME }}{{ notebook.file_ipynb.url }}">nbviewer</a>.
+</p>
 <iframe id="notebook" srcdoc="{{ html }}"  onload="resizeIFrameToFitContent(this)" scrolling="no">
 </iframe>
 {% endblock content %}
