@@ -119,21 +119,29 @@ class Notebook(models.Model):
                 notebook in the IPython Notebook format .ipynb.'))
 
     def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self.generate_html_file()
+        super().save(*args, **kwargs)
 
 
     def generate_html_file(self):
-        filename = os.path.basename(self.file_ipynb)
+        filename = os.path.basename(self.file_ipynb.path)
+        filename = os.path.splitext(filename)[0]  # Select name without extension
         filename += ".html"
         self.file_html.save(
             filename,
-            ContentFile(self.to_html()),
+            self.generate_html_file(),
+            save=False,
         )
-        self.save()
 
-    def to_html(self):
+    def _to_html(self):
         exporter = HTMLExporter(template_name='classic')
         body, resources = exporter.from_file(self.file_ipynb.path)
         return body
+
+
+    def generate_html_file(self):
+        return ContentFile(self._to_html())
 
 
     def __str__(self):

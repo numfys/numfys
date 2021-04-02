@@ -16,12 +16,12 @@
  }
 </style>
 <script>
-    function resizeIFrameToFitContent( iFrame ) {
+ function resizeIFrameToFitContent( iFrame ) {
 
-    iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
-    iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
-    }
+     iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+     iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+ }
 </script>
-<iframe id="notebook" srcdoc="{{ notebook.to_html }}"  onload="resizeIFrameToFitContent(this)" scrolling="no">
+<iframe id="notebook" srcdoc="{{ html }}"  onload="resizeIFrameToFitContent(this)" scrolling="no">
 </iframe>
 {% endblock content %}
