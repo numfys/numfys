@@ -9,6 +9,8 @@ from nbconvert import HTMLExporter
 from taggit.managers import TaggableManager
 import os
 
+from django.core.files.base import ContentFile
+
 
 class OverwriteStorage(FileSystemStorage):
     """Overwrite Django's storage function get_available_name to
@@ -96,6 +98,13 @@ class Notebook(models.Model):
         help_text='Rendered using Jupyter\'s nbviewer.',
     )
 
+
+    file_html = models.FileField(
+        verbose_name=".html file",
+        upload_to='notebooks',
+        storage=OverwriteStorage(),
+    )
+
     # From third party app 'django-taggit'
     # Docs: https://django-taggit.readthedocs.org/en/latest/index.html
     tags = TaggableManager(blank=True, )
@@ -108,6 +117,18 @@ class Notebook(models.Model):
         if file_str[-5:] != 'ipynb':
             raise ValidationError(_('File error. You must upload the \
                 notebook in the IPython Notebook format .ipynb.'))
+
+    def save(self, *args, **kwargs):
+
+
+    def generate_html_file(self):
+        filename = os.path.basename(self.file_ipynb)
+        filename += ".html"
+        self.file_html.save(
+            filename,
+            ContentFile(self.to_html()),
+        )
+        self.save()
 
     def to_html(self):
         exporter = HTMLExporter(template_name='classic')
