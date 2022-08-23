@@ -9,4 +9,4 @@ mysqlclient==1.4.4
 Pillow==7.1.0
 six==1.10.0
 Pygments==2.8.0
-nbconvert==6.0.7
+nbconvert==6.5.1
